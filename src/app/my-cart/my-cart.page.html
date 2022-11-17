@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <img src="../../assets/menu_bar.svg" />
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="notification">
+        <ion-icon name="notifications-outline" color="dark"></ion-icon>
+        <span>&nbsp;</span>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="search ion-padding">
+    <ion-item lines="none">
+      <ion-input placeholder="Buscar categoria"></ion-input>
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+    </ion-item>
+  </div>
+
+  <div class="title ion-padding">
+    <h2 class="font-bold">Categorias cadastradas</h2>
+  </div>
+
+  <div class="title ion-padding" *ngIf="categorias.length == 0">
+    <h2 class="font-bold">Não possuímos categorias cadastrados para essa categoria. Aguarde e tente novamente mais tarde!</h2>
+  </div>
+
+  <div class="product-slider ion-padding-start">
+      <ion-card *ngFor="let categoria of categorias">
+        <ion-row (click)="showCategoryInfo(categoria.id)">
+        <ion-col size="6"class="ion-text-left" routerDirection="forward">
+          <img src="{{ categoria.imagem }}"/>
+        </ion-col>
+        <ion-col size="6" class="ion-text-start" style="align-items: flex-start;" routerDirection="forward">
+          <div class="item-info">
+            <h4 style="color: black">{{ categoria.nome }}</h4>
+          </div>
+        </ion-col>
+      </ion-row>
+      </ion-card>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button routerLink="/favorite">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

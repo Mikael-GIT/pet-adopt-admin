@@ -1,0 +1,45 @@
+<ion-content>
+  <h1 class="title">Perfil</h1>
+
+  <div class="profile-info">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input [(ngModel)]="profile.nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input [(ngModel)]="profile.telefone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input [(ngModel)]="profile.email"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="profile.cpf">
+      <ion-label position="floating">CPF</ion-label>
+      <ion-input [(ngModel)]="profile.cpf"></ion-input>
+    </ion-item>
+    <div *ngIf="profile.endereco">
+      <h4>Endereço</h4>
+      <ion-item>
+        <ion-label position="floating">Logradouro</ion-label>
+        <ion-input [(ngModel)]="profile.endereco.cep"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Logradouro</ion-label>
+        <ion-input [(ngModel)]="profile.endereco.logradouro"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nome</ion-label>
+        <ion-input [(ngModel)]="profile.endereco.numero"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Logradouro</ion-label>
+        <ion-input [(ngModel)]="profile.endereco.complemento"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Logradouro</ion-label>
+        <ion-input [(ngModel)]="profile.endereco.bairro"></ion-input>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" class="backbtn" routerLink="/home" routerDirection="back">
+        <img src="../../assets/back-dark.svg" />
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button class="notification">
+        <ion-icon name="notifications-outline" color="dark"></ion-icon>
+        <span>&nbsp;</span>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content class="ion-padding" fullscreen="true">
+    <img [src]="imagemCategoria"/>
+    <h1 class="title">Cadastro de categorias</h1>
+    <div class="form-container">
+      <form [formGroup]="registrationForm">
+          <ion-item>
+            <ion-label position="floating">Link Imagem</ion-label>
+            <ion-input
+              formControlName="imagem"
+              autocapitalize
+              inputmode="text"
+            ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Nome</ion-label>
+            <ion-input
+              formControlName="nome"
+              autocapitalize
+              inputmode="text"
+            ></ion-input>
+          </ion-item>
+          
+
+      </form>
+    </div>
+  </ion-content>
+
+
+  <div class="seperator">
+    <hr>
+  </div>
+
+
+
+ 
+</ion-content>
+<ion-footer>
+  <ion-row>
+    <ion-col size="6">
+      <ion-button expand="full" color="danger" routerLink="/my-orders" routerDirection="forward" >Excluir</ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-col size="6">
+        <ion-button size="6" *ngIf="id != null" expand="full" routerLink="/home" routerDirection="forward" (click)="update()">Atualizar</ion-button>
+        <ion-button *ngIf="id == null" expand="full" routerLink="/home" routerDirection="forward" (click)="update()">Cadastrar</ion-button>
+      </ion-col>
+    </ion-col>
+  </ion-row>
+</ion-footer>
